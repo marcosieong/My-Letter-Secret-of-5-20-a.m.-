@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret of 5:20 a.m. - Long Marcos</title>
+    <style>
+        /* 全域重設與背景設定：深邃星光紅 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            background: radial-gradient(circle at center, #800000 0%, #300000 70%, #100000 100%);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* ========================================================== */
+        /* 泰勒絲風格：背景亮片閃爍特效 (Glitter Canvas Background)      */
+        /* ========================================================== */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* 第一層：大顆粒慢速閃爍微光 */
+        body::before {
+            background-image: 
+                radial-gradient(circle, #ffffff 1px, transparent 1px),
+                radial-gradient(circle, #ff6666 1.5px, transparent 1.5px),
+                radial-gradient(circle, #ffffff 1px, transparent 1px);
+            background-size: 250px 250px, 400px 400px, 300px 300px;
+            background-position: 0 0, 40px 60px, 130px 200px;
+            animation: glitterSlow 8s linear infinite;
+        }
+
+        /* 第二層：細密快速閃爍亮片 */
+        body::after {
+            background-image: 
+                radial-gradient(circle, #ffb3b3 1px, transparent 1px),
+                radial-gradient(circle, #ffffff 0.8px, transparent 0.8px);
+            background-size: 180px 180px, 290px 290px;
+            background-position: 20px 30px, 150px 50px;
+            animation: glitterFast 4s linear infinite;
+        }
+
+        @keyframes glitterSlow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        @keyframes glitterFast {
+            0%, 100% { opacity: 0.2; }
+            25% { opacity: 0.6; }
+            75% { opacity: 0.4; }
+        }
+
+        /* ========================================================== */
+        /* 內容容器與毛玻璃質感（確保在閃爍背景下文字依然極度清晰） */
+        /* ========================================================== */
+        .container {
+            max-width: 750px;
+            margin: 40px 20px;
+            padding: 50px 40px;
+            background: rgba(15, 0, 0, 0.75); 
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.25), inset 0 0 15px rgba(255, 102, 102, 0.1);
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 51, 51, 0.25);
+            position: relative;
+            z-index: 2; /* 浮在閃爍背景之上 */
+        }
+
+        /* ========================================================== */
+        /* 泰勒絲風格：文字流光閃耀特效 (Shining Glitter Text)         */
+        /* ========================================================== */
+        h1 {
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 35px;
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+            
+            /* 文字動態流光核心技術 */
+            background: linear-gradient(to right, #ff4d4d 0%, #ffffff 25%, #ffb3b3 50%, #ffffff 75%, #ff4d4d 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 4s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 77, 77, 0.5));
+        }
+
+        @keyframes textShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* 段落內文排版 */
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: justify;
+            color: #e5e5e5;
+            line-height: 1.8;
+        }
+
+        /* 強調標題 */
+        strong {
+            color: #ff6666;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 5px rgba(255, 102, 102, 0.3);
+        }
+
+        /* 經典引用句閃爍：Although I enjoy this, I want to stop. */
+        .quote {
+            display: block;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.3rem;
+            background: linear-gradient(to right, #ffffff, #ffb3b3, #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+        }
+
+        /* 520 節日強調 */
+        .wishes {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #ff4d4d;
+            margin-top: 40px;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+        }
+
+        /* 底部署名 */
+        .footer {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 51, 51, 0.25);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .footer .role {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* 響應式手機優化 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px 15px;
+            }
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
+            .quote { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy 520 Day!<br>Congratulations to everyone who guessed the correct album title: <em>Secret of 5:20 a.m.</em></h1>
+
+        <p>Today, I am releasing the prelude-intro version, which includes song introductions for "Forever Yours" and "Good Boy!!!". I wrote, composed, recorded, and produced these songs entirely in my studio. However, there were times when I recorded my vocals on the spot whenever inspiration struck.</p>
+
+        <p>Many people have asked me why I haven’t released the album yet. The reason is that while I was recording, I was secretly preparing a massive surprise for all of you. Bringing this surprise to life has made my schedule much busier and harder. The scale of this surprise is truly massive—the workload feels triple that of my debut. So, please wait patiently; it will be released very soon.</p>
+
+        <p><strong>"Forever Yours"</strong> is the fourth track of the album, and it is the deepest, saddest song I have ever made. I originally began working on this track when I was twelve years old. The song tells the story of a man who falls deeply in love, but due to circumstances beyond his control, the relationship ends. Unable to accept the loss, he ultimately takes his own life; the lyrics serve as his final note. To me, this story is deeply personal. I met a girl when I was twelve, and we fell in love, but an unfair situation forced us apart. Even though it brought me immense heartbreak, I tried desperately to force myself to move on, but I couldn't. I wrote a poem to process the pain, and turning it into this song took three years—a period of time that was incredibly exhausting and painful. Now that the song is finally finished, I hope to release it very soon.</p>
+
+        <p><strong>"Good Boy!!!"</strong> is the sixth track. The lyrics are raw, intense, and provocative. The song explores themes of power and control—the idea that when you hold the power, you can get anything you want, especially love. For a long time, I tried so hard to be a "good boy," but it only left me feeling sad and broken. The song touches on the confusing, conflicting feeling of being overwhelmed by external forces while wishing for it to stop:</p>
+        
+        <span class="quote">"Although I enjoy this, I want to stop."</span>
+        
+        <p>I channeled all of this bewilderment into a five-minute writing session to produce this track.</p>
+
+        <p class="wishes">Happy 520 to all of you. I hope you have a wonderful day filled with energy and romance.</p>
+
+        <div class="footer">
+            <p>Released by:<br>
+            <span class="role">Singer-songwriter, Long Marcos</span></p>
+        </div>
+    </div>
+
+</body>
+</html>
